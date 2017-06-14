@@ -92,17 +92,20 @@ console.log(animals.length);
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Decided to use an array for "friends" because "friends" will not have any other properties. SHould be much easier to work with, too.
-
-var friends = [];
-
-function pickFriend(animals) {
+var friendsList = [];
+function pickFriend(animals){
     var getName = animals[Math.floor(Math.random() * animals.length)];
     return getName["name"];
 }
-friends.push(pickFriend(animals));
-console.log(friends);
-animals[0].friends = pickFriend(animals);
+
+friendsList.push(pickFriend(animals)); //pushed random name to array
+console.log(friendsList);
+
+animals[0].friends = []; //created the array 'friends' inside the first object
+animals[0].friends.push(friendsList[0]); //pushed the friendsList at index 0 to the array
+animals[0].friends.push("Testimal");
 console.log(animals[0]);
+// friends.push(animals[Math.floor(Math.random() * animals.length)].name); Does the same thing as the whole function
 
 /** 
  * Nice work! You're done Part 1. Pat yourself on the back and 
